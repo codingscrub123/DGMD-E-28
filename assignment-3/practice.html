@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+    <link rel="stylesheet" href="stylesheet2.css">
+</head>
+<body>
+    <div id="content">
+        <h1>Practice Problems</h1>
+        <div class="problem">
+            <h2>Times Table</h2>
+            <script>
+                // prompt user for number
+                var number = prompt("Enter a number to display its times table: ");
+
+                // display times table for number
+                function timesTable(number) {
+                    const NUM_TIMES = 12;
+                    for (i=1; i<=NUM_TIMES; i++) {
+                        var result = number * i;
+                        document.write(`<p>${number} * ${i} = ${result}<br></p>`);
+                    }
+                }
+                timesTable(number);
+            </script>
+        </div>
+        <hr>
+        <div class="problem">
+            <h2>Fahrenheit to Celsius</h2>
+            <script>
+                // convert Fahrenheit to Celsius
+                function far2cels(ftemp) {
+                        var ctemp = (ftemp - 32) * 5 / 9;
+                        document.write(`<p>${ftemp}°F = ${ctemp}°C<br></p>`);
+                }
+                far2cels(0);
+                far2cels(32);
+                far2cels(100);
+            </script>
+        </div>
+    </div>
+</body>
+</html>

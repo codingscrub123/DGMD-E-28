@@ -1,0 +1,58 @@
+body {
+    background-image: url('images/flowers-pastel-canvas_53876-93713.avif');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+}
+
+.board {
+    display: grid;
+    justify-content: center;
+    place-items: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border: solid 1px black;
+    margin: 8px;
+}
+
+.square:hover {
+    background-color: lightblue;
+}
+
+#start-game {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: lightblue;
+    color: black;
+    border: none;
+}
+
+#start-game:hover {
+    background-color: lightskyblue;
+    cursor: pointer;
+}
+
+.mark {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#status {
+    border: solid 1px black;
+    padding: 5px;
+    margin-bottom: 20px;
+}

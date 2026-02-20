@@ -1,0 +1,17 @@
+body {
+    background-image: url(images/hw-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#content {
+    display: grid;
+    justify-content: center;
+}
+
+.problem {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
