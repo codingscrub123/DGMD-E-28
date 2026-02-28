@@ -10,7 +10,7 @@
     <div class="board" aria-label="Tic Tac Toe Board">
         <h1>Tic Tac Toe Game</h1>
         <div id="status">
-            <h2>X's Turn</h2>
+            <h2 id="whose_turn" turn="X's Turn">X's Turn</h2>
         </div>
         <div class="container">
             <script>
@@ -33,14 +33,54 @@
                         document.getElementById(element).innerHTML = "<p class='mark'>O</p>";
                     });
 
+                // Randomly decide who goes first
+                const firstPlayer = Math.floor(Math.random() * 2);
+                const h1 = document.getElementById('whose_turn');
+
+                // Update header to show who goes first
+                if (firstPlayer === 0) {
+                    h1.turn = "X's Turn";
+                    h1.innerHTML = "X's Turn";
+                } else {
+                    h1.turn = "O's Turn";
+                    h1.innerHTML = "O's Turn";
+                }
+
                 // Create event handler
                 const squares = document.querySelectorAll('.square');
                     squares.forEach(square => {
                         square.addEventListener('click', () => {
                             // Check if the square is already occupied;
-                            if 
+                            console.log(square.innerHTML);
+                            if (square.innerHTML !== "") {
+                                return;
+                            }
+                            // if not, add a mark
+                            else {
+                                // check whose turn it is
+                                if (h1.turn == "X's Turn") {
+                                    // if X's turn, add an X to square
+                                    square.innerHTML = "<p class='mark'>X</p>";
+                                    
+                                    // update header
+                                    h1.innerHTML = "O's Turn";
 
-                            // If not, add an X or 0 to the square depending on whose turn it is, and update the status message
+                                    // update flag
+                                    h1.turn = "O's Turn";
+                                }
+
+                                else {
+                                    // if X's turn, add an X to square
+                                    square.innerHTML = "<p class='mark'>O</p>";
+
+                                    // update header
+                                    h1.innerHTML = "X's Turn";
+
+                                    // update flag
+                                    h1.turn = "X's Turn";
+                                }
+                                
+                            }
                         }
                     )});
             </script>
