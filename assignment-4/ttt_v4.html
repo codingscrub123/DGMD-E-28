@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <div class="board" aria-label="Tic Tac Toe Board">
+        <h1>Tic Tac Toe Game</h1>
+        <div id="status">
+            <h2>X's Turn</h2>
+        </div>
+        <div class="container">
+            <script>
+                const NUM_SQUARES = 9;
+                    for (i=0; i<NUM_SQUARES; i++)
+                    {
+                        id = "sq"+i;
+                        document.write( "<div class='square' id='" + id + "'></div>" );
+                    }
+                
+                // Add Xs to the board
+                const XS = ["sq0", "sq8"];
+                    XS.forEach(element => {
+                        document.getElementById(element).innerHTML = "<p class='mark'>X</p>";
+                    });
+
+                // Add 0s to the board
+                const OS = ["sq3"];
+                    OS.forEach(element => {
+                        document.getElementById(element).innerHTML = "<p class='mark'>O</p>";
+                    });
+
+                // Create event handler
+                const squares = document.querySelectorAll('.square');
+                    squares.forEach(square => {
+                        square.addEventListener('click', () => {
+                            // Check if the square is already occupied;
+                            if 
+
+                            // If not, add an X or 0 to the square depending on whose turn it is, and update the status message
+                        }
+                    )});
+            </script>
+        </div>
+    <button id="start-game">Start Game</button>
+    <h3><a href="https://en.wikipedia.org/wiki/Tic-tac-toe" target="_blank">More Info on Tic Tac Toe</a></h3>
+    </div>
+</body>
+</html>
