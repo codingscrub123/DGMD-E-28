@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <div class="board" aria-label="Tic Tac Toe Board">
+        <h1>Tic Tac Toe Game</h1>
+        <div id="status">
+            <h2 id="whose_turn" turn="X's Turn">X's Turn</h2>
+        </div>
+        <div class="container">
+            <script>
+                const moves = ['-', '-', '-', '-', '-', '-', '-', '-', '-'];
+                const winConditions = [
+                    [0, 1, 2],
+                    [3, 4, 5],
+                    [6, 7, 8],
+                    [0, 3, 6],
+                    [1, 4, 7],
+                    [2, 5, 8],
+                    [0, 4, 8],
+                    [2, 4, 6]
+                ];
+                let gameActive = false;
+                const NUM_SQUARES = 9;
+                    for (i=0; i<NUM_SQUARES; i++)
+                    {
+                        id = "sq"+i;
+                        document.write( "<div class='square' id='" + id + "'></div>" );
+                    }
+                
+                // Add Xs to the board
+                const XS = ["sq0", "sq8"];
+                    XS.forEach(element => {
+                        document.getElementById(element).innerHTML = "<p class='mark'>X</p>";
+                    });
+
+                // Add 0s to the board
+                const OS = ["sq3"];
+                    OS.forEach(element => {
+                        document.getElementById(element).innerHTML = "<p class='mark'>O</p>";
+                    });
+
+                // Randomly decide who goes first
+                const firstPlayer = Math.floor(Math.random() * 2);
+                const h1 = document.getElementById('whose_turn');
+
+                // Update header to show who goes first
+                if (firstPlayer === 0) {
+                    h1.turn = "X's Turn";
+                    h1.innerHTML = "X's Turn";
+                } else {
+                    h1.turn = "O's Turn";
+                    h1.innerHTML = "O's Turn";
+                }
+
+                // Create event handler
+                const squares = document.querySelectorAll('.square');
+                    squares.forEach(square => {
+                        square.addEventListener('click', () => {
+                            if (!gameActive) return;
+                            // Check if the square is already occupied;
+                            console.log(square.innerHTML);
+                            if (square.innerHTML !== "") {
+                                return;
+                            }
+                            // if not, add a mark
+                            else {
+                                // check whose turn it is
+                                if (h1.turn == "X's Turn") {
+                                    
+                                    // if X's turn, add an X to square
+                                    square.innerHTML = "<p class='mark'>X</p>";
+                                    
+                                    // update header
+                                    h1.innerHTML = "O's Turn";
+
+                                    // update flag
+                                    h1.turn = "O's Turn";
+
+                                    // get index of clicked square
+                                    const index = parseInt(square.id.substring(2));
+
+                                    // add X to moves array
+                                    moves[index] = "X"
+                                }
+
+                                else {
+                                    // if X's turn, add an X to square
+                                    square.innerHTML = "<p class='mark'>O</p>";
+
+                                    // update header
+                                    h1.innerHTML = "X's Turn";
+
+                                    // update flag
+                                    h1.turn = "X's Turn";
+
+                                    // get index of clicked square
+                                    const index = parseInt(square.id.substring(2));
+
+                                    // add X to moves array
+                                    moves[index] = "O"
+                                }
+                            // check if someone has won
+                            let gameWon = false;
+                            winConditions.forEach(condition => {
+                                let arr = [];
+                                condition.forEach(index => {
+                                    arr.push(moves[index]);
+                                })
+                                if (arr.join('') === 'XXX') {
+                                    // report that X has won
+                                    gameActive = false;
+                                    gameWon = true;
+                                    console.log("X wins!");
+                                    alert("X wins!");
+                                }
+                                else if (arr.join('') === 'OOO') {
+                                    // report that O has won
+                                    gameActive = false;
+                                    gameWon = true;
+                                    console.log("O wins!");
+                                    alert("O wins!");
+                                }
+                            })
+                            
+                            // check if there's been a stalemate
+                            if (!gameWon && !moves.includes('-')) {
+                                // report that the game is a stalemate
+                                gameActive = false;
+                                console.log("Stalemate");
+                                alert('Stalemate!');
+                            }
+                            }
+                        }
+                    )});
+            </script>
+        </div>
+    <button id="start-game">Start Game</button>
+    <script>
+            // start button logic
+            const startButton = document.getElementById('start-game');
+            startButton.addEventListener('click', () => {
+                gameActive = true;
+                moves.fill('-');
+                squares.forEach(square => {
+                    square.innerHTML = "";
+                });
+                // Randomly decide who goes first
+                const firstPlayer = Math.floor(Math.random() * 2);
+                // Update header to show who goes first
+                if (firstPlayer === 0) {
+                    h1.turn = "X's Turn";
+                    h1.innerHTML = "X's Turn";
+                } else {
+                    h1.turn = "O's Turn";
+                    h1.innerHTML = "O's Turn";
+                }
+            })
+    </script>
+    <h3><a href="https://en.wikipedia.org/wiki/Tic-tac-toe" target="_blank">More Info on Tic Tac Toe</a></h3>
+    </div>
+</body>
+</html>
