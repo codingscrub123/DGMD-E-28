@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joe's Hotdogs Order System</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Joe's Hotdogs Menu</h1>
+    <div id="menu"></div>
+    
+    <h2>Add to Cart</h2>
+    <select id="itemSelect">
+        <option value="">Select an item</option>
+    </select>
+    <br><br>
+    <button id="addToCart">Add to Cart</button>
+    
+    <h2>Shopping Cart</h2>
+    <div id="cart"></div>
+    <button id="checkout">Checkout</button>
+
+    <script>
+        // Class using function method
+        function MenuItem(name, price) {
+            this.name = name;
+            this.price = price;
+        }
+
+        // Create array of instances
+        const menu = [
+            new MenuItem("hotdogs", 4.00),
+            new MenuItem("fries", 3.50),
+            new MenuItem("soda", 1.50),
+            new MenuItem("sauerkraut", 1.00)
+        ];
+
+        // Display the menu
+        const menuDiv = document.getElementById('menu');
+        menuDiv.innerHTML = '<ul>';
+        menu.forEach(item => {
+            menuDiv.innerHTML += `<li>${item.name}: $${item.price.toFixed(2)}</li>`;
+        });
+        menuDiv.innerHTML += '</ul>';
+
+        // Populate select options
+        const select = document.getElementById('itemSelect');
+        menu.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.name;  // Change value to name for easier lookup
+            option.textContent = item.name;
+            select.appendChild(option);
+        });
+
+        // Quantities associative array (object) - initialize all to 0
+        const quantities = {
+            "hotdogs": 0,
+            "fries": 0,
+            "soda": 0,
+            "sauerkraut": 0
+        };
+
+        // Add to cart button
+        document.getElementById('addToCart').addEventListener('click', function() {
+            const selectedValue = select.value;
+            if (selectedValue) {
+                quantities[selectedValue]++;  // Increment quantity
+                updateCart();
+            }
+        });
+
+        // Update cart display
+        function updateCart() {
+            const cartDiv = document.getElementById('cart');
+            let hasItems = false;
+            let total = 0;
+            cartDiv.innerHTML = '<ul>';
+            for (const itemName in quantities) {
+                if (quantities[itemName] > 0) {
+                    hasItems = true;
+                    const item = menu.find(i => i.name === itemName);
+                    const subtotal = quantities[itemName] * item.price;
+                    cartDiv.innerHTML += `<li>${itemName}: ${quantities[itemName]} x $${item.price.toFixed(2)} = $${subtotal.toFixed(2)}</li>`;
+                    total += subtotal;
+                }
+            }
+            if (!hasItems) {
+                cartDiv.innerHTML = '<p>Cart is empty</p>';
+            } else {
+                cartDiv.innerHTML += `</ul><p><strong>Total: $${total.toFixed(2)}</strong></p>`;
+            }
+        }
+
+        // Checkout button
+        document.getElementById('checkout').addEventListener('click', function() {
+            let hasItems = false;
+            let total = 0;
+            let message = 'Order Summary:\n\n';
+            for (const itemName in quantities) {
+                if (quantities[itemName] > 0) {
+                    hasItems = true;
+                    const item = menu.find(i => i.name === itemName);
+                    const subtotal = quantities[itemName] * item.price;
+                    message += `${itemName}: ${quantities[itemName]} x $${item.price.toFixed(2)} = $${subtotal.toFixed(2)}\n`;
+                    total += subtotal;
+                }
+            }
+            if (!hasItems) {
+                alert('Your cart is empty!');
+            } else {
+                message += `\nTotal: $${total.toFixed(2)}\nThank you for your order!`;
+                alert(message);
+                // Reset quantities
+                for (const itemName in quantities) {
+                    quantities[itemName] = 0;
+                }
+                updateCart();
+            }
+        });
+
+        // Initialize cart
+        updateCart();
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joe's Hotdogs Menu</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Joe's Hotdogs Menu</h1>
+    
+    <h2>Part 1: Associative Array</h2>
+    <div id="menu1"></div>
+    
+    <h2>Part 2: JavaScript Object (Array of Objects)</h2>
+    <div id="menu2"></div>
+    
+    <h2>Part 3: Class (Function Method)</h2>
+    <div id="menu3"></div>
+
+    <script>
+        // Part 1: Associative array (object)
+        const menu1 = {
+            "hotdogs": 4.00,
+            "fries": 3.50,
+            "soda": 1.50,
+            "sauerkraut": 1.00
+        };
+
+        const menuDiv1 = document.getElementById('menu1');
+        menuDiv1.innerHTML = '<ul>';
+        for (const item in menu1) {
+            menuDiv1.innerHTML += `<li>${item}: $${menu1[item].toFixed(2)}</li>`;
+        }
+        menuDiv1.innerHTML += '</ul>';
+
+        // Part 2: JavaScript object (array of objects)
+        const menu2 = [
+            { name: "hotdogs", price: 4.00 },
+            { name: "fries", price: 3.50 },
+            { name: "soda", price: 1.50 },
+            { name: "sauerkraut", price: 1.00 }
+        ];
+
+        const menuDiv2 = document.getElementById('menu2');
+        menuDiv2.innerHTML = '<ul>';
+        menu2.forEach(item => {
+            menuDiv2.innerHTML += `<li>${item.name}: $${item.price.toFixed(2)}</li>`;
+        });
+        menuDiv2.innerHTML += '</ul>';
+
+        // Part 3: Class using function method
+        function MenuItem(name, price) {
+            this.name = name;
+            this.price = price;
+        }
+
+        const menu3 = [
+            new MenuItem("hotdogs", 4.00),
+            new MenuItem("fries", 3.50),
+            new MenuItem("soda", 1.50),
+            new MenuItem("sauerkraut", 1.00)
+        ];
+
+        const menuDiv3 = document.getElementById('menu3');
+        menuDiv3.innerHTML = '<ul>';
+        menu3.forEach(item => {
+            menuDiv3.innerHTML += `<li>${item.name}: $${item.price.toFixed(2)}</li>`;
+        });
+        menuDiv3.innerHTML += '</ul>';
+    </script>
+</body>
+</html>
