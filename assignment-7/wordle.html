@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Wordle</h1>
+    <p>Guess the word in 6 tries.</p>
+    <p>Each guess must be a valid 5 letter word. Hit the enter button to submit.</p>
+    <p>After each guess, the color of the tiles will change to show how close your guess was to the word.</p>
+    </div>
+    <div id="keyboard">
+        <div class="key-row">
+            <span class="key">Q</span>
+            <span class="key">W</span>
+            <span class="key">E</span>
+            <span class="key">R</span>
+            <span class="key">T</span>
+            <span class="key">Y</span>
+            <span class="key">U</span>
+            <span class="key">I</span>
+            <span class="key">O</span>
+            <span class="key">P</span>
+        </div>
+        <div class="key-row">
+            <span class="key">A</span>
+            <span class="key">S</span>
+            <span class="key">D</span>
+            <span class="key">F</span>
+            <span class="key">G</span>
+            <span class="key">H</span>
+            <span class="key">J</span>
+            <span class="key">K</span>
+            <span class="key">L</span>
+        </div>
+        <div class="key-row">
+            <span class="key">Z</span>
+            <span class="key">X</span>
+            <span class="key">C</span>
+            <span class="key">V</span>
+            <span class="key">B</span>
+            <span class="key">N</span>
+            <span class="key">M</span>
+        </div>
+    </div>
+    <table id="wordle-board">
+        <tbody>
+            <tr>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+            </tr>
+            <tr>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+            </tr>
+            <tr>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+            </tr>
+            <tr>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+            </tr>
+            <tr>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+            </tr>
+            <tr>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+                <td><div class="letter-box"></div></td>
+            </tr>
+        </tbody>
+    </table>
+    <label for="guess-input">Enter your guess:</label>
+    <input type="text" id="guess-input" maxlength="5" autofocus>
+    <button id="reset-button" type="button">New Game</button>
+    <script src="script.js"></script>
+</body>
+</html>
