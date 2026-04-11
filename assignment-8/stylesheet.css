@@ -4,6 +4,99 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    text-align: center;
+}
+
+#root {
+    width: 100%;
+    max-width: 700px;
+}
+
+#wordle-board {
+    margin: 20px auto;
+}
+
+#wordle-board table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+#keyboard {
+    display: inline-block;
+    margin: 20px auto 0;
+}
+
+#guess-input {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.guess-input-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 14px;
+}
+
+.guess-input-row label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.button-row button {
+    padding: 10px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.button-row button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#submit-button,
+#reset-button {
+    margin-top: 0;
+    padding: 8px 12px;
+    min-width: 140px;
+    width: 140px;
+    height: 42px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+#submit-button {
+    background-color: #4caf50;
+}
+
+#reset-button {
+    background-color: #2d89ef;
+}
+
+#used-letters {
+    margin-top: 12px;
+    text-align: center;
 }
 
 .letter-box {

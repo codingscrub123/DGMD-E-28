@@ -139,6 +139,7 @@ function updateBoard(guess, result) {
     cell.classList.add('filled');
     cell.classList.add(result[i]);
   }
+  currentRow += 1;
 }
 
 // getPriority: choose highest status (correct > present > absent) for repeat letters
@@ -225,14 +226,13 @@ async function processGuess() {
   updateKeyboard(rawGuess, evaluation);
   lockedRows.add(currentRow); // lock completed row
   guessInput.value = '';
+  currentRow += 1; // move to next row
 
   if (evaluation.every(v => v === 'correct')) {
     setMessage(`Congratulations! You guessed the word: ${answer}`, 'green');
     gameOver = true;
     return;
   }
-
-  currentRow += 1;
 
   if (currentRow >= MAX_ROWS) {
     setMessage(`Game over. The answer was: ${answer}`, 'red');
