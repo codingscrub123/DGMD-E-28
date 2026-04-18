@@ -1,0 +1,250 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+#root {
+    width: 100%;
+    max-width: 700px;
+}
+
+#wordle-board {
+    margin: 20px auto;
+}
+
+#wordle-board table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+#keyboard {
+    display: inline-block;
+    margin: 20px auto 0;
+}
+
+#guess-input {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.guess-input-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 14px;
+}
+
+.guess-input-row label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.button-row button {
+    padding: 10px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.button-row button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#submit-button,
+#reset-button {
+    margin-top: 0;
+    padding: 8px 12px;
+    min-width: 140px;
+    width: 140px;
+    height: 42px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+#submit-button {
+    background-color: #4caf50;
+}
+
+#reset-button {
+    background-color: #2d89ef;
+}
+
+#used-letters {
+    margin-top: 12px;
+    text-align: center;
+}
+
+.letter-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    margin: 2px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.letter-box.correct {
+    background-color: #6aaa64;
+    color: white;
+    border-color: #6aaa64;
+}
+
+.letter-box.present {
+    background-color: #c9b458;
+    color: white;
+    border-color: #c9b458;
+}
+
+.letter-box.absent {
+    background-color: #787c7e;
+    color: white;
+    border-color: #787c7e;
+}
+
+.letter-box.filled {
+    background-color: #f0f0f0;
+}
+
+#keyboard {
+    margin-top: 20px;
+}
+
+.used-letters-grid {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap: 4px;
+    margin-top: 4px;
+    max-width: 330px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.used-letter,
+.key {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 2px;
+    text-align: center;
+    line-height: 28px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.used-letter.correct,
+.key.correct {
+    background-color: #6aaa64;
+    color: white;
+}
+
+.used-letter.present,
+.key.present {
+    background-color: #c9b458;
+    color: white;
+}
+
+.used-letter.absent,
+.key.absent {
+    background-color: #787c7e;
+    color: white;
+}
+
+#reset-button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: #2d89ef;
+    color: white;
+}
+
+.key-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.key {
+    width: 40px;
+    height: 40px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.key.correct {
+    background-color: #6aaa64;
+    color: white;
+}
+
+.key.present {
+    background-color: #c9b458;
+    color: white;
+}
+
+.key.absent {
+    background-color: #787c7e;
+    color: white;
+}
+
+@media (max-width: 700px) {
+    body {
+        font-size: 14px;
+    }
+
+    .letter-box {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    #keyboard, #used-letters-board {
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    .key-row {
+        flex-wrap: wrap;
+    }
+
+    .key, .used-letter {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+        line-height: 30px;
+    }
+}
