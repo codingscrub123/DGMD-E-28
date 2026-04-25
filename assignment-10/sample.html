@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample HTML Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .block {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .block:hover {
+            opacity: 0.3;
+        }
+        .red { background-color: #FF0000; }
+        .blue { background-color: #0000FF; }
+        .green { background-color: #00FF00; }
+        .yellow { background-color: #FFFF00; }
+        .purple { background-color: #800080; }
+        .orange { background-color: #FFA500; }
+        .pink { background-color: #FFC0CB; }
+        .brown { background-color: #A52A2A; }
+        .gray { background-color: #808080; }
+    </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel" src="script.js"></script>
+</body>
+</html>
