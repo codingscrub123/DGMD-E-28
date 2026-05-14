@@ -1,3 +1,4 @@
+// About page describing the app features and technical implementation.
 export default function About() {
   return (
     <section className="about-page">

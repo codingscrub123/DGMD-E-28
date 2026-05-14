@@ -1,3 +1,5 @@
+// Entry point for the Vite React application.
+// This file sets up router support and renders the root component.
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';

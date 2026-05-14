@@ -1,3 +1,4 @@
+// ChessBoard renders the 8x8 board and delegates each square to the Square component.
 import Square from './Square.jsx';
 
 export default function ChessBoard({ board, selected, legalTargets, onSquareClick }) {

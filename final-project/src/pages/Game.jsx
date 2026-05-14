@@ -1,3 +1,4 @@
+// Game page with chessboard interactions, form fields, and saved state in local storage.
 import { useMemo, useState } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage.js';
 import ChessBoard from '../components/ChessBoard.jsx';

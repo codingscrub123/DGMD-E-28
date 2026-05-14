@@ -1,3 +1,4 @@
+// Application shell that defines high-level page routing and navigation.
 import { Routes, Route, NavLink } from 'react-router-dom';
 import Game from './pages/Game.jsx';
 import About from './pages/About.jsx';

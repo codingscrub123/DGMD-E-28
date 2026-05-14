@@ -1,3 +1,4 @@
+// Square renders an individual board cell and applies styles for selection and legal moves.
 import { pieceSymbols } from '../game/chessLogic.js';
 
 export default function Square({ index, piece, isSelected, isLegalTarget, onClick }) {
