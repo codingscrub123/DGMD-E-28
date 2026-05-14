@@ -8,7 +8,7 @@ import './styles.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/DGMD-E-28">
       <App />
     </BrowserRouter>
   </React.StrictMode>
